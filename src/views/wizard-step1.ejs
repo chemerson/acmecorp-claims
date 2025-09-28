@@ -1,0 +1,27 @@
+<section class="card">
+  <h2>Step 1: Initial Data</h2>
+  <form method="post" action="/wizard/step1" class="form-grid">
+    <label>
+      Policy Number
+      <input type="text" name="policyNumber" value="<%= (data.initial && data.initial.policyNumber) || '' %>" required />
+    </label>
+    <label>
+      Full Name
+      <input type="text" name="fullName" value="<%= (data.initial && data.initial.fullName) || '' %>" required />
+    </label>
+    <label>
+      Email
+      <input type="email" name="email" value="<%= (data.initial && data.initial.email) || '' %>" required />
+    </label>
+    <label>
+      Phone
+      <input type="tel" name="phone" value="<%= (data.initial && data.initial.phone) || '' %>" required />
+    </label>
+    <div class="actions">
+      <a class="btn" href="/login">Back</a>
+      <button class="btn btn-primary" type="submit">Next</button>
+    </div>
+  </form>
+</section>
+
+

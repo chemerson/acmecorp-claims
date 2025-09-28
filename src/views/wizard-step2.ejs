@@ -1,0 +1,49 @@
+<section class="card">
+  <h2>Step 2: Claim Details</h2>
+  <form method="post" action="/wizard/step2" enctype="multipart/form-data" class="form-grid">
+    <label>
+      Incident Type
+      <select name="incidentType" required>
+        <option value="">Select</option>
+        <option value="car" <%= (data.details && data.details.incidentType==='car') ? 'selected' : '' %>>Car</option>
+        <option value="boat" <%= (data.details && data.details.incidentType==='boat') ? 'selected' : '' %>>Boat</option>
+        <option value="other" <%= (data.details && data.details.incidentType==='other') ? 'selected' : '' %>>Other</option>
+      </select>
+      <small class="hint">Choose the category that best fits your incident.</small>
+    </label>
+    <label>
+      Incident Date
+      <input type="date" name="incidentDate" value="<%= (data.details && data.details.incidentDate) || '' %>" required />
+    </label>
+    <label>
+      Incident Time
+      <input type="time" name="incidentTime" value="<%= (data.details && data.details.incidentTime) || '' %>" required />
+    </label>
+    <label>
+      Brief Description
+      <textarea name="description" rows="4" required><%= (data.details && data.details.description) || '' %></textarea>
+      <small class="hint">Describe what happened in 1-3 sentences.</small>
+    </label>
+    <label>
+      Upload Evidence (photos/documents)
+      <input type="file" name="evidenceFiles" multiple accept="image/*,.pdf,.doc,.docx" />
+      <small class="hint">You can add multiple files. Max 10 per submission.</small>
+    </label>
+    <% if (data.details && data.details.uploads && data.details.uploads.length) { %>
+      <div class="uploads card">
+        <p>Previously uploaded:</p>
+        <ul>
+          <% data.details.uploads.forEach(u => { %>
+            <li><a href="<%= u.path %>" target="_blank"><%= u.originalname %></a></li>
+          <% }) %>
+        </ul>
+      </div>
+    <% } %>
+    <div class="actions">
+      <a class="btn" href="/wizard/step1">Back</a>
+      <button class="btn btn-primary" type="submit">Next</button>
+    </div>
+  </form>
+</section>
+
+

@@ -1,0 +1,37 @@
+<section class="card">
+  <h2>Step 3: Review & Submit</h2>
+  <div class="review-grid">
+    <div>
+      <h3>Initial Data</h3>
+      <p><strong>Policy Number:</strong> <%= (data.initial && data.initial.policyNumber) || '' %></p>
+      <p><strong>Name:</strong> <%= (data.initial && data.initial.fullName) || '' %></p>
+      <p><strong>Email:</strong> <%= (data.initial && data.initial.email) || '' %></p>
+      <p><strong>Phone:</strong> <%= (data.initial && data.initial.phone) || '' %></p>
+      <a class="btn btn-link" href="/wizard/step1">Edit</a>
+    </div>
+    <div>
+      <h3>Incident Details</h3>
+      <p><strong>Type:</strong> <%= (data.details && data.details.incidentType) || '' %></p>
+      <p><strong>Date:</strong> <%= (data.details && data.details.incidentDate) || '' %></p>
+      <p><strong>Time:</strong> <%= (data.details && data.details.incidentTime) || '' %></p>
+      <p><strong>Description:</strong> <%= (data.details && data.details.description) || '' %></p>
+      <% if (data.details && data.details.uploads && data.details.uploads.length) { %>
+        <div>
+          <strong>Uploads:</strong>
+          <ul>
+            <% data.details.uploads.forEach(u => { %>
+              <li><a href="<%= u.path %>" target="_blank"><%= u.originalname %></a></li>
+            <% }) %>
+          </ul>
+        </div>
+      <% } %>
+      <a class="btn btn-link" href="/wizard/step2">Edit</a>
+    </div>
+  </div>
+  <form method="post" action="/wizard/submit" class="actions">
+    <a class="btn" href="/wizard/step2">Back</a>
+    <button class="btn btn-primary" type="submit">Submit Claim</button>
+  </form>
+</section>
+
+

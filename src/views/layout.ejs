@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= title || 'AcmeCorp' %></title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/public/css/styles.css" />
+  <script
+    type="text/javascript"
+    src="https://plug-platform.devrev.ai/static/plug.js">
+  </script>
+</head>
+<body>
+  <script>
+    window.plugSDK.init({
+        app_id: "DvRvStPZG9uOmNvcmU6ZHZydi11cy0xOmRldm8vMXdKYnJSYjNSUjpwbHVnX3NldHRpbmcvMV9ffHxfXzIwMjUtMDktMjcgMTM6Mzc6MzEuMTY0MTIwNzgxICswMDAwIFVUQw==xlxendsDvRv",
+    });
+  </script>
+  <%- include('partials/header') %>
+  <main class="container">
+    <%- body %>
+  </main>
+  <%- include('partials/footer') %>
+</body>
+</html>
+
+
