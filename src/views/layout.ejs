@@ -16,8 +16,22 @@
 <body>
   <script>
     window.plugSDK.init({
-        app_id: "DvRvStPZG9uOmNvcmU6ZHZydi11cy0xOmRldm8vMXdKYnJSYjNSUjpwbHVnX3NldHRpbmcvMV9ffHxfXzIwMjUtMDktMjcgMTM6Mzc6MzEuMTY0MTIwNzgxICswMDAwIFVUQw==xlxendsDvRv",
+      app_id: "DvRvStPZG9uOmNvcmU6ZHZydi11cy0xOmRldm8vMXdKYnJSYjNSUjpwbHVnX3NldHRpbmcvMV9ffHxfXzIwMjUtMDktMjcgMTM6Mzc6MzEuMTY0MTIwNzgxICswMDAwIFVUQw==xlxendsDvRv",
     });
+
+    // Clear Chat function
+    async function clearChat() {
+      try {
+        // end current PLuG session
+        await window.plugSDK.shutdown();
+        console.log('Chat session cleared successfully');
+      } catch (error) {
+        console.error('Error clearing chat session:', error);
+      }
+      window.plugSDK.init({
+      app_id: "DvRvStPZG9uOmNvcmU6ZHZydi11cy0xOmRldm8vMXdKYnJSYjNSUjpwbHVnX3NldHRpbmcvMV9ffHxfXzIwMjUtMDktMjcgMTM6Mzc6MzEuMTY0MTIwNzgxICswMDAwIFVUQw==xlxendsDvRv",
+      });
+    }
   </script>
   <%- include('partials/header') %>
   <main class="container">
